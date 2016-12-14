@@ -1,10 +1,10 @@
 if (window.DeviceOrientationEvent) {
   window.addEventListener('deviceorientation', function(event) {
-    document.querySelector('#alpha').innerText = Math.round(event.alpha) + "\u00B0";
-    document.querySelector('#compassHeading').innerText = Math.round(event.compassHeading || 0) + "\u00B0";   
-    document.querySelector('#webkitCompassHeading').innerText = Math.round(event.webkitCompassHeading || 0) + "\u00B0";       
-    document.querySelector('#compassAccuracy').innerText = Math.round(event.compassAccuracy || 0);           
-    document.querySelector('#webkitCompassAccuracy').innerText = Math.round(event.webkitCompassAccuracy || 0);               
+    document.querySelector('#alpha').innerText = event.alpha ? Math.round(event.alpha) + "\u00B0" : '-';
+    document.querySelector('#compassHeading').innerText = event.compassHeading ? Math.round(event.compassHeading) + "\u00B0" : '-';   
+    document.querySelector('#webkitCompassHeading').innerText = event.webkitCompassHeading ? Math.round(event.webkitCompassHeading) + "\u00B0" : '-';       
+    document.querySelector('#compassAccuracy').innerText = event.compassAccuracy ? Math.round(event.compassAccuracy) : '-';           
+    document.querySelector('#webkitCompassAccuracy').innerText = event.webkitCompassAccuracy ? Math.round(event.webkitCompassAccuracy) : '-';               
   }, false);
 } else {
   alert('deviceorientation not supported in ' + navigator.userAgent)
