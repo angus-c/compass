@@ -1,9 +1,8 @@
 if (window.DeviceOrientationEvent) {
   window.addEventListener('deviceorientation', function(event) {
-  	var alpha = event.compassHeading || event.webkitCompassHeading || event.alpha || 0;
-    document.querySelector('#alpha').innerText = Math.round(alpha) + "'";
-    document.querySelector('#compassHeading').innerText = Math.round(compassHeading) + "'";   
-    document.querySelector('#webkitCompassHeading').innerText = Math.round(webkitCompassHeading) + "'";       
+    document.querySelector('#alpha').innerText = Math.round(event.alpha) + "'";
+    document.querySelector('#compassHeading').innerText = Math.round(event.compassHeading || 0) + "'";   
+    document.querySelector('#webkitCompassHeading').innerText = Math.round(event.webkitCompassHeading || 0) + "'";       
   }, false);
 } else {
   alert('deviceorientation not supported in ' + navigator.userAgent)
